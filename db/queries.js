@@ -6,6 +6,13 @@ async function getAllCategories() {
   return rows;
 }
 
+async function getCategory(id) {
+  const { rows } = await pool.query("SELECT * FROM categories WHERE id = $1", [
+    id,
+  ]);
+  return rows;
+}
+
 async function createCategory(name) {
   const { rows } = await pool.query(
     "INSERT INTO categories (name) VALUES ($1) RETURNING *",
@@ -40,6 +47,11 @@ async function getAllItemsOfCategory(categoryId) {
   return rows;
 }
 
+async function getItem(id) {
+  const { rows } = await pool.query("SELECT * FROM items WHERE id = $1", [id]);
+  return rows[0];
+}
+
 async function createItem(name, category_id, quantity, unit) {
   const { rows } = await pool.query(
     "INSERT INTO items (name, category_id, quantity, unit) VALUES ($1, $2, $3, $4) RETURNING *",
@@ -62,10 +74,12 @@ async function deleteItem(id) {
 
 module.exports = {
   getAllCategories,
+  getCategory,
   createCategory,
   updateCategory,
   deleteCategory,
   getAllItems,
+  getItem,
   getAllItemsOfCategory,
   createItem,
   updateItem,
