@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 20px;
+  max-width: 500px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: lightgreen;
+  border: none;
+  font-weight: bold;
+}
+
+select {
+  padding: 8px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-weight: bold;
+}

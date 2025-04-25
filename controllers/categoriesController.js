@@ -1,5 +1,24 @@
 const db = require("../db/queries.js");
 
+async function getAllCategories(req, res) {
+  const categories = await db.getAllCategories();
+  res.render("categories", {
+    title: "Categories",
+    categories,
+  });
+}
+
+async function getCategory(req, res) {
+  const { id } = req.params;
+  const category = await db.getCategory(id);
+  const items = await db.getAllItemsOfCategory(id);
+  res.render("category", {
+    title: category.name,
+    category,
+    items,
+  });
+}
+
 async function showCreateCategoryForm(req, res) {
   res.render("createCategory", {
     title: "Create Category",
@@ -32,23 +51,6 @@ async function deleteCategory(req, res) {
   const { id } = req.params;
   await db.deleteCategory(id);
   res.redirect("/categories");
-}
-
-async function getCategory(req, res) {
-  const { id } = req.params;
-  const category = await db.getCategory(id);
-  res.render("category", {
-    title: "Category Details",
-    category,
-  });
-}
-
-async function getAllCategories(req, res) {
-  const categories = await db.getAllCategories();
-  res.render("categories", {
-    title: "All Categories",
-    categories,
-  });
 }
 
 module.exports = {

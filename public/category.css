@@ -1,0 +1,76 @@
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.category-container {
+  padding: 20px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.category-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.normal {
+  color: black;
+  text-decoration: none;
+}
+
+.add-item-btn {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: lightgreen;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.edit-category-btn {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.delete-category-btn {
+  color: black;
+  font-weight: bold;
+  background-color: red;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.item {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 8px;
+  background-color: white;
+}
+
+.item-name {
+  font-size: 20px;
+
+  font-weight: bold;
+  margin-bottom: 10px;
+}

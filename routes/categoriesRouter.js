@@ -3,9 +3,10 @@ const categoriesController = require("../controllers/categoriesController.js");
 const categoriesRouter = Router();
 
 categoriesRouter.get("/", categoriesController.getAllCategories);
+categoriesRouter.get("/new", categoriesController.showCreateCategoryForm);
+
 categoriesRouter.get("/:id", categoriesController.getCategory);
 
-categoriesRouter.get("/new", categoriesController.showCreateCategoryForm);
 categoriesRouter.post("/", categoriesController.createCategory);
 
 categoriesRouter.get("/:id/edit", categoriesController.showUpdateCategoryForm);

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/items.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+      <div class="first-row">
+        <div class="title"><%= title %></div>
+        <a class="add-item-btn" href="/items/new">+ Add Item</a>
+      </div>
+      <div class="items-container">
+        <% items.forEach((item) => { %>
+        <a href="./items/<%= item.id %>">
+          <div class="item">
+            <div class="item-name"><%= item.name %></div>
+            <div class="item-details">
+              Category: <%= item.category_name %> <br />
+              Quantity: <%= item.quantity %> <br />
+              Unit: <%= item.unit %>
+            </div>
+          </div>
+        </a>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>

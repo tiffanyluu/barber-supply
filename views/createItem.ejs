@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/createItem.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+      <div class="title"><%= title %></div>
+      <form class="form" action="/items" method="POST">
+        <div class="form-field">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="form-field">
+          <label for="categoryId">Category:</label>
+          <select name="categoryId" id="categoryId">
+            <% categories.forEach((category) => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="quantity">Quantity:</label>
+          <input type="number" name="quantity" id="quantity" />
+        </div>
+        <div class="form-field">
+          <label for="unit">Unit:</label>
+          <input type="text" name="unit" id="unit" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

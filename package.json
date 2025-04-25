@@ -4,7 +4,8 @@
   "description": "This is a CRUD inventory management app built with **Node.js**, **Express**, and **PostgreSQL**, designed for a small, walk-in-only barber shop. The app helps the shop owner (my mom) manage and track various supplies used in the shop.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "node --watch app.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "method-override": "^3.0.0",
     "pg": "^8.15.5"
   }
 }

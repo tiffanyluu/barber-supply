@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/item.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+      <div class="first-row">
+        <div class="title"><%= title %></div>
+        <div class="item-btns">
+          <a class="edit-item-btn" href="/items/<%= item.id %>/edit"
+            >Edit Item</a
+          >
+          <form
+            action="/items/<%= item.id %>?_method=DELETE"
+            method="POST"
+            style="display: inline"
+          >
+            <button
+              class="delete-item-btn"
+              type="submit"
+              onclick="return confirm('Are you sure you want to delete this item?')"
+            >
+              Delete Item
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-name"><%= item.name %></div>
+        <div class="item-details">
+          Category: <%= item.category_name %> <br />
+          Quantity: <%= item.quantity %> <br />
+          Unit: <%= item.unit %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -2,7 +2,7 @@ const pool = require("./pool.js");
 
 // Categories Queries
 async function getAllCategories() {
-  const { rows } = await pool.query("SELECT * FROM categories");
+  const { rows } = await pool.query("SELECT id, name FROM categories");
   return rows;
 }
 
@@ -10,7 +10,7 @@ async function getCategory(id) {
   const { rows } = await pool.query("SELECT * FROM categories WHERE id = $1", [
     id,
   ]);
-  return rows;
+  return rows[0];
 }
 
 async function createCategory(name) {
@@ -35,20 +35,25 @@ async function deleteCategory(id) {
 
 // Items Queries
 async function getAllItems() {
-  const { rows } = await pool.query("SELECT * FROM items");
+  const { rows } = await pool.query(
+    "SELECT items.*, categories.name AS category_name FROM items LEFT JOIN categories ON items.category_id = categories.id"
+  );
   return rows;
 }
 
 async function getAllItemsOfCategory(categoryId) {
   const { rows } = await pool.query(
-    "SELECT * FROM items LEFT JOIN categories ON items.category_id = categories.id WHERE categories.id = $1",
+    "SELECT items.*, categories.name AS category_name FROM items LEFT JOIN categories ON items.category_id = categories.id WHERE categories.id = $1",
     [categoryId]
   );
   return rows;
 }
 
 async function getItem(id) {
-  const { rows } = await pool.query("SELECT * FROM items WHERE id = $1", [id]);
+  const { rows } = await pool.query(
+    "SELECT items.*, categories.name AS category_name FROM items LEFT JOIN categories ON items.category_id = categories.id WHERE items.id = $1",
+    [id]
+  );
   return rows[0];
 }
 

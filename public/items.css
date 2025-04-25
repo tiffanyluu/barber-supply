@@ -1,0 +1,75 @@
+.container {
+  padding: 20px;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.add-item-btn {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: lightgreen;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.add-item-btn:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.item:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.item-name,
+.item-details {
+  text-decoration: none;
+  color: black;
+}
+
+.item-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.item-details:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.item-name:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

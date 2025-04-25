@@ -1,0 +1,53 @@
+.container {
+  padding: 20px;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.add-category-btn {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: lightgreen;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.add-category-btn:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.category-item:visited {
+  text-decoration: none;
+  color: black;
+}

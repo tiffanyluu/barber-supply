@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/updateItem.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+      <div class="title"><%= title %></div>
+      <form action="/items/<%= item.id %>?_method=PUT" method="POST">
+        <div class="form-item">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" value="<%= item.name %>" />
+        </div>
+        <div class="form-item">
+          <label for="categoryId">Category:</label>
+          <select name="categoryId" id="categoryId">
+            <% categories.forEach((category) => { %>
+              <option
+                value="<%= category.id %>"
+                <%= category.id == item.categoryId ? 'selected' : '' %>
+              >
+                <%= category.name %>
+              </option>
+            <% }); %>
+          </select>
+        </div>
+        <div class="form-item">
+          <label for="quantity">Quantity:</label>
+          <input
+            type="text"
+            name="quantity"
+            id="quantity"
+            value="<%= item.quantity %>"
+          />
+        </div>
+        <div class="form-item">
+          <label for="unit">Unit:</label>
+          <input type="text" name="unit" id="unit" value="<%= item.unit %>" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

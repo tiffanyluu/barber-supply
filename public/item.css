@@ -1,0 +1,52 @@
+.container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.item-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-item-btn {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.delete-item-btn {
+  color: black;
+  font-weight: bold;
+  background-color: red;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.item-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
