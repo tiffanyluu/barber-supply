@@ -1,0 +1,11 @@
+ul {
+  padding: 20px;
+  margin: 20px;
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+}
+
+li {
+  margin-bottom: 10px;
+}

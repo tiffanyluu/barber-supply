@@ -6,14 +6,22 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/navbar.css" />
     <link rel="stylesheet" href="/updateCategory.css" />
+    <link rel="stylesheet" href="/errors.css" />
   </head>
   <body>
-    <%- include('partials/navbar.ejs') %>
+    <%- include('partials/navbar.ejs') %> <%- include('partials/errors.ejs') %>
+
     <div class="container">
       <div class="title"><%= title %></div>
       <form action="/categories/<%= category.id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="<%= category.name %>" />
+        <input
+          required
+          type="text"
+          name="name"
+          id="name"
+          value="<%= category.name %>"
+        />
         <button type="submit">Submit</button>
       </form>
     </div>

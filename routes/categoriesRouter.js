@@ -7,10 +7,18 @@ categoriesRouter.get("/new", categoriesController.showCreateCategoryForm);
 
 categoriesRouter.get("/:id", categoriesController.getCategory);
 
-categoriesRouter.post("/", categoriesController.createCategory);
+categoriesRouter.post(
+  "/",
+  categoriesController.validateCategory,
+  categoriesController.createCategory
+);
 
 categoriesRouter.get("/:id/edit", categoriesController.showUpdateCategoryForm);
-categoriesRouter.put("/:id", categoriesController.updateCategory);
+categoriesRouter.put(
+  "/:id",
+  categoriesController.validateCategory,
+  categoriesController.updateCategory
+);
 
 categoriesRouter.delete("/:id", categoriesController.deleteCategory);
 

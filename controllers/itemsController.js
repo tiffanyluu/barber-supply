@@ -1,4 +1,23 @@
 const db = require("../db/queries.js");
+const { body, validationResult } = require("express-validator");
+
+const lengthErr = "must be between 1 and 20 characters.";
+const numErr = "must be a non-negative whole number";
+const alphaErr = "must consist of letters";
+
+const validateItem = [
+  body("name")
+    .trim()
+    .isLength({ min: 1, max: 20 })
+    .withMessage(`Name ${lengthErr}`),
+  body("quantity").trim().isInt({ min: 1 }).withMessage(`Quantity ${numErr}`),
+  body("unit")
+    .trim()
+    .isAlpha()
+    .withMessage(`Unit ${alphaErr}`)
+    .isLength({ min: 1, max: 20 })
+    .withMessage(`Unit ${lengthErr}`),
+];
 
 async function getAllItems(req, res) {
   const items = await db.getAllItems();
@@ -36,6 +55,18 @@ async function showCreateItemForm(req, res) {
 
 async function createItem(req, res) {
   const { name, categoryId, quantity, unit } = req.body;
+  const errors = validationResult(req);
+  const categories = await db.getAllCategories();
+
+  if (!errors.isEmpty()) {
+    return res.status(400).render("createItem", {
+      title: "Add Item",
+      categories,
+      errors: errors.array(),
+      item: req.body,
+    });
+  }
+
   await db.createItem(name, categoryId, quantity, unit);
   res.redirect("/items");
 }
@@ -54,6 +85,18 @@ async function showUpdateItemForm(req, res) {
 async function updateItem(req, res) {
   const { id } = req.params;
   const { name, categoryId, quantity, unit } = req.body;
+  const errors = validationResult(req);
+  const categories = await db.getAllCategories();
+
+  if (!errors.isEmpty()) {
+    return res.status(400).render("updateItem", {
+      title: "Update Item",
+      item: { id, ...req.body },
+      categories,
+      errors: errors.array(),
+    });
+  }
+
   await db.updateItem(id, name, categoryId, quantity, unit);
   res.redirect(`/items/${id}`);
 }
@@ -73,4 +116,5 @@ module.exports = {
   showUpdateItemForm,
   updateItem,
   deleteItem,
+  validateItem,
 };

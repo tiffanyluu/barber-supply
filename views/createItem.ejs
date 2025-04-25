@@ -6,15 +6,17 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/navbar.css" />
     <link rel="stylesheet" href="/createItem.css" />
+    <link rel="stylesheet" href="/errors.css" />
   </head>
   <body>
-    <%- include('partials/navbar.ejs') %>
+    <%- include('partials/navbar.ejs') %> <%- include("partials/errors.ejs") %>
+
     <div class="container">
       <div class="title"><%= title %></div>
       <form class="form" action="/items" method="POST">
         <div class="form-field">
           <label for="name">Name:</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" required />
         </div>
         <div class="form-field">
           <label for="categoryId">Category:</label>
@@ -26,11 +28,11 @@
         </div>
         <div class="form-field">
           <label for="quantity">Quantity:</label>
-          <input type="number" name="quantity" id="quantity" />
+          <input type="number" name="quantity" id="quantity" required />
         </div>
         <div class="form-field">
           <label for="unit">Unit:</label>
-          <input type="text" name="unit" id="unit" />
+          <input type="text" name="unit" id="unit" required />
         </div>
         <button type="submit">Submit</button>
       </form>
