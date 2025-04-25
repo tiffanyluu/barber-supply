@@ -4,6 +4,7 @@ const itemsRouter = Router();
 
 itemsRouter.get("/", itemsController.getAllItems);
 itemsRouter.get("/new", itemsController.showCreateItemForm);
+itemsRouter.get("/search", itemsController.searchItems);
 
 itemsRouter.get("/category/:categoryId", itemsController.getAllItemsOfCategory);
 itemsRouter.get("/:id", itemsController.getItem);

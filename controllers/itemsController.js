@@ -107,6 +107,15 @@ async function deleteItem(req, res) {
   res.redirect("/items");
 }
 
+async function searchItems(req, res) {
+  const { query } = req.query;
+  const items = await db.searchItems(query);
+  res.render("searchPage", {
+    query,
+    items,
+  });
+}
+
 module.exports = {
   getAllItems,
   getAllItemsOfCategory,
@@ -117,4 +126,5 @@ module.exports = {
   updateItem,
   deleteItem,
   validateItem,
+  searchItems,
 };

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server Error</title>
+    <link rel="stylesheet" href="/navbar.css" />
+    <link rel="stylesheet" href="/error.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="error-container">
+      <h1>500</h1>
+      <p>Oops! Something went wrong on our end.</p>
+      <p><%= message %></p>
+      <a href="/">Back to Home</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+/* public/error.css */
+.error-container {
+  text-align: center;
+  margin-top: 80px;
+  padding: 40px;
+}
+
+.error-container h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+  color: #cc0000;
+}
+
+.error-container p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.error-container a {
+  font-size: 18px;
+  color: #0066cc;
+  text-decoration: underline;
+}

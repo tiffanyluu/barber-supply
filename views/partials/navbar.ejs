@@ -4,5 +4,10 @@
     <a class="nav-link" href="/categories">Categories</a>
     <a class="nav-link" href="/items">Items</a>
   </div>
-  <div class="right-part">search</div>
+  <div class="right-part">
+    <form class="search-form" action="/items/search" method="GET">
+      <input type="text" name="query" placeholder="Search products..." />
+      <button type="submit">Search</button>
+    </form>
+  </div>
 </nav>

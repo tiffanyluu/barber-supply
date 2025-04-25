@@ -77,6 +77,19 @@ async function deleteItem(id) {
   await pool.query("DELETE FROM items WHERE id = $1", [id]);
 }
 
+async function searchItems(query) {
+  const result = await pool.query(
+    `
+    SELECT items.*, categories.name AS category_name
+    FROM items
+    JOIN categories ON items.category_id = categories.id
+    WHERE items.name ILIKE $1 OR categories.name ILIKE $1
+    `,
+    [`%${query}%`]
+  );
+  return result.rows;
+}
+
 module.exports = {
   getAllCategories,
   getCategory,
@@ -89,4 +102,5 @@ module.exports = {
   createItem,
   updateItem,
   deleteItem,
+  searchItems,
 };
