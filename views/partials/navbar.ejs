@@ -1,13 +1,18 @@
 <nav>
   <div class="left-part">
-    <div class="app-name">💈 BarberSupply 💈</div>
+    <a class="app-name nav-link" href="/categories">💈 BarberSupply 💈</a>
     <a class="nav-link" href="/categories">Categories</a>
     <a class="nav-link" href="/items">Items</a>
   </div>
   <div class="right-part">
     <form class="search-form" action="/items/search" method="GET">
-      <input type="text" name="query" placeholder="Search products..." />
-      <button type="submit">Search</button>
+      <input
+        class="search-input"
+        type="text"
+        name="query"
+        placeholder="Search products..."
+      />
+      <button class="search-btn" type="submit">Search</button>
     </form>
   </div>
 </nav>

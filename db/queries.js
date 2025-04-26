@@ -57,18 +57,18 @@ async function getItem(id) {
   return rows[0];
 }
 
-async function createItem(name, category_id, quantity, unit) {
+async function createItem(name, category_id, quantity, unit, image_url) {
   const { rows } = await pool.query(
-    "INSERT INTO items (name, category_id, quantity, unit) VALUES ($1, $2, $3, $4) RETURNING *",
-    [name, category_id, quantity, unit]
+    "INSERT INTO items (name, category_id, quantity, unit, image_url) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    [name, category_id, quantity, unit, image_url]
   );
   return rows[0];
 }
 
-async function updateItem(id, name, category_id, quantity, unit) {
+async function updateItem(id, name, category_id, quantity, unit, image_url) {
   const { rows } = await pool.query(
-    "UPDATE items SET name = $1, category_id = $2, quantity = $3, unit = $4 WHERE id = $5 RETURNING *",
-    [name, category_id, quantity, unit, id]
+    "UPDATE items SET name = $1, category_id = $2, quantity = $3, unit = $4, image_url = $5 WHERE id = $6 RETURNING *",
+    [name, category_id, quantity, unit, image_url, id]
   );
   return rows[0];
 }

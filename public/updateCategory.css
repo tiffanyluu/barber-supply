@@ -11,7 +11,7 @@
   padding: 20px;
 }
 
-form {
+.updateCategory-form {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -20,18 +20,19 @@ form {
   max-width: 500px;
 }
 
-input {
+.category-update-input {
   padding: 10px;
   border-radius: 10px;
   margin: 10px 0;
   font-size: 20px;
 }
 
-button {
+.category-update-button {
   padding: 10px;
   border-radius: 10px;
   font-size: 20px;
   background-color: lightgreen;
   border: none;
   font-weight: bold;
+  margin-top: 10px;
 }

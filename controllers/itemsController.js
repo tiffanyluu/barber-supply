@@ -57,6 +57,7 @@ async function createItem(req, res) {
   const { name, categoryId, quantity, unit } = req.body;
   const errors = validationResult(req);
   const categories = await db.getAllCategories();
+  const imageUrl = req.file ? req.file.path : null;
 
   if (!errors.isEmpty()) {
     return res.status(400).render("createItem", {
@@ -67,7 +68,7 @@ async function createItem(req, res) {
     });
   }
 
-  await db.createItem(name, categoryId, quantity, unit);
+  await db.createItem(name, categoryId, quantity, unit, imageUrl);
   res.redirect("/items");
 }
 
@@ -88,16 +89,25 @@ async function updateItem(req, res) {
   const errors = validationResult(req);
   const categories = await db.getAllCategories();
 
+  let imageUrl;
+
+  if (req.file) {
+    imageUrl = req.file.path;
+  } else {
+    const existingItem = await db.getItem(id);
+    imageUrl = existingItem.image_url;
+  }
+
   if (!errors.isEmpty()) {
     return res.status(400).render("updateItem", {
       title: "Update Item",
-      item: { id, ...req.body },
+      item: { id, name, categoryId, quantity, unit, image_url: imageUrl },
       categories,
       errors: errors.array(),
     });
   }
 
-  await db.updateItem(id, name, categoryId, quantity, unit);
+  await db.updateItem(id, name, categoryId, quantity, unit, imageUrl);
   res.redirect(`/items/${id}`);
 }
 

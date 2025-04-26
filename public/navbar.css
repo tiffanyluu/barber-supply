@@ -4,23 +4,27 @@
 }
 
 body {
-  background-color: #f0f4f8;
+  background-color: #f0f2f5;
   font-family: "Segoe UI", sans-serif;
 }
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  background-color: white;
-  font-size: 24px;
+  align-items: center;
+  background-color: #00e1ff;
+  font-size: 26px;
   font-weight: bold;
-  padding: 20px 10px;
-  min-width: 600px;
+  padding: 30px 10px;
 }
 
-.left-part {
+.left-part,
+.right-part {
   display: flex;
-  gap: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-link {
@@ -33,24 +37,53 @@ nav {
   color: black;
 }
 
-nav form {
+.search-form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-nav input {
+.search-input {
   padding: 5px;
   margin-right: 10px;
   font-size: 18px;
   border-radius: 10px;
+  width: 180px;
 }
 
-nav button {
+.search-btn {
   padding: 5px 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   background-color: lightgrey;
   border: none;
   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-part,
+  .right-part {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-form {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
 }

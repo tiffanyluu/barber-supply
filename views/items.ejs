@@ -18,12 +18,18 @@
         <% items.forEach((item) => { %>
         <a href="./items/<%= item.id %>">
           <div class="item">
-            <div class="item-name"><%= item.name %></div>
-            <div class="item-details">
-              Category: <%= item.category_name %> <br />
-              Quantity: <%= item.quantity %> <br />
-              Unit: <%= item.unit %>
+            <% if (item.image_url) { %>
+            <div class="item-image">
+              <img
+                src="/<%= item.image_url %>"
+                alt="<%= item.name %> Image"
+                style="max-width: 200px; height: auto"
+              />
             </div>
+            <% } else { %>
+            <div class="no-image">No Image Available</div>
+            <% } %>
+            <div class="item-name"><%= item.name %></div>
           </div>
         </a>
         <% }); %>

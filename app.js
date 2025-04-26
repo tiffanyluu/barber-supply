@@ -1,9 +1,12 @@
 const express = require("express");
 const categoriesRouter = require("./routes/categoriesRouter");
 const itemsRouter = require("./routes/itemsRouter");
+
 const app = express();
 
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
+
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 

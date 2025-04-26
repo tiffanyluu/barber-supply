@@ -13,10 +13,21 @@
 
     <div class="container">
       <div class="title"><%= title %></div>
-      <form class="form" action="/items" method="POST">
+      <form
+        class="createItem-form"
+        action="/items"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <div class="form-field">
           <label for="name">Name:</label>
-          <input type="text" name="name" id="name" required />
+          <input
+            class="item-input"
+            type="text"
+            name="name"
+            id="name"
+            required
+          />
         </div>
         <div class="form-field">
           <label for="categoryId">Category:</label>
@@ -28,13 +39,36 @@
         </div>
         <div class="form-field">
           <label for="quantity">Quantity:</label>
-          <input type="number" name="quantity" id="quantity" required />
+          <input
+            class="item-input"
+            type="number"
+            name="quantity"
+            id="quantity"
+            required
+          />
         </div>
         <div class="form-field">
           <label for="unit">Unit:</label>
-          <input type="text" name="unit" id="unit" required />
+          <input
+            class="item-input"
+            type="text"
+            name="unit"
+            id="unit"
+            required
+          />
         </div>
-        <button type="submit">Submit</button>
+        <div class="form-field">
+          <label for="image">Image:</label>
+          <input
+            class="image-input"
+            type="file"
+            name="image"
+            id="image"
+            accept="image/*"
+          />
+        </div>
+
+        <button class="item-submit" type="submit">Submit</button>
       </form>
     </div>
   </body>

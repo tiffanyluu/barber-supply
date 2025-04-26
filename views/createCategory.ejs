@@ -13,10 +13,16 @@
 
     <div class="container">
       <div class="title"><%= title %></div>
-      <form action="/categories" method="POST">
+      <form class="createCategory-form" action="/categories" method="POST">
         <label for="name">Category Name:</label>
-        <input required type="text" name="name" id="name" />
-        <button type="submit">Submit</button>
+        <input
+          class="category-input"
+          required
+          type="text"
+          name="name"
+          id="name"
+        />
+        <button class="category-submit" type="submit">Submit</button>
       </form>
     </div>
   </body>

@@ -14,19 +14,16 @@
 
     <div class="container">
       <div class="title"><%= title %></div>
-      <form action="/items/<%= item.id %>?_method=PUT" method="POST">
+      <form class="updateItem-form" action="/items/<%= item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="form-item">
           <label for="name">Name:</label>
-          <input type="text" name="name" id="name" value="<%= item.name %>" required/>
+          <input class="updateItem-input" type="text" name="name" id="name" value="<%= item.name %>" required />
         </div>
         <div class="form-item">
           <label for="categoryId">Category:</label>
           <select name="categoryId" id="categoryId">
             <% categories.forEach((category) => { %>
-              <option
-                value="<%= category.id %>"
-                <%= category.id == item.categoryId ? 'selected' : '' %>
-              >
+              <option value="<%= category.id %>" <%= category.id == item.category_id ? 'selected' : '' %>>
                 <%= category.name %>
               </option>
             <% }); %>
@@ -34,19 +31,28 @@
         </div>
         <div class="form-item">
           <label for="quantity">Quantity:</label>
-          <input
-            type="text"
-            name="quantity"
-            id="quantity"
-            value="<%= item.quantity %>"
-            required
-          />
+          <input class="updateItem-input" type="text" name="quantity" id="quantity" value="<%= item.quantity %>" required />
         </div>
         <div class="form-item">
           <label for="unit">Unit:</label>
-          <input type="text" name="unit" id="unit" value="<%= item.unit %>" required/>
+          <input class="updateItem-input" type="text" name="unit" id="unit" value="<%= item.unit %>" required />
         </div>
-        <button type="submit">Submit</button>
+
+        <% if (item.image_url) { %>
+          <div class="form-item">
+            <label>Current Image:</label>
+            <div class="current-image">
+              <img src="/<%= item.image_url %>" alt="Item Image" style="max-width: 150px; border: 1px solid #ddd;" />
+            </div>
+          </div>
+        <% } %>
+
+        <div class="form-item">
+          <label for="image">Change Image (Optional):</label>
+          <input class="image-input" type="file" name="image" id="image" accept="image/*" />
+        </div>
+
+        <button class="updateItem-submit" type="submit">Submit</button>
       </form>
     </div>
   </body>

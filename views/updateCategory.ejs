@@ -13,16 +13,21 @@
 
     <div class="container">
       <div class="title"><%= title %></div>
-      <form action="/categories/<%= category.id %>?_method=PUT" method="POST">
+      <form
+        class="updateCategory-form"
+        action="/categories/<%= category.id %>?_method=PUT"
+        method="POST"
+      >
         <label for="name">Name:</label>
         <input
+          class="category-update-input"
           required
           type="text"
           name="name"
           id="name"
           value="<%= category.name %>"
         />
-        <button type="submit">Submit</button>
+        <button class="category-update-button" type="submit">Submit</button>
       </form>
     </div>
   </body>
