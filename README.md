@@ -4,8 +4,8 @@ This is a CRUD inventory management app built with **Node.js**, **Express**, and
 
 ## Features
 
-- **CRUD Operations**: View, add, update, and delete categories and items in the shop's inventory.
+- **Full CRUD Operations**: View, add, update, and delete categories and items in the shop's inventory.
 - **Categories**: Organize items into categories like Hair Products, Shaving Supplies, and more.
-- **Search Functionality**: Search for any items.
-- **Admin Protection**: Password prompt to confirm destructive actions like deleting or updating categories/items.
-- **Mobile-friendly**: Responsive layout for easy access on mobile devices.
+- **Search Functionality**: Instantly search for any item by name.
+- **Image Uploads**: Upload and edit item images for better visual tracking.
+- **Mobile-Responsive Design**: Smooth experience on phones, tablets, and desktops.
