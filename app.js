@@ -20,9 +20,9 @@ app.get("/", (req, res) => {
   res.redirect("/categories");
 });
 
-app.get("/error-test", (req, res) => {
-  throw new Error("Simulated server failure for testing purposes.");
-});
+// app.get("/error-test", (req, res) => {
+//   throw new Error("Simulated server failure for testing purposes.");
+// });
 
 app.use((req, res, next) => {
   const NotFoundError = require("./errors/NotFoundError");

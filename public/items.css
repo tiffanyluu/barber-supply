@@ -60,6 +60,7 @@
 .item-name {
   font-size: 20px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .item-details:visited {
