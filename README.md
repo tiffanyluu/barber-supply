@@ -1,6 +1,6 @@
 # 💈 BarberSupply 💈
 
-This is a CRUD inventory management app built with **Node.js**, **Express**, and **PostgreSQL**, designed for a small barber shop. The app helps the shop owner (my mom) manage and track various supplies used in the shop.
+This is a CRUD inventory management app built with **Node.js**, **Express**, and **PostgreSQL**, designed for a local barber shop. The app helps the shop owner manage and track various supplies used in the shop.
 
 <p align="center">
   <img src="./barber.png"/>
